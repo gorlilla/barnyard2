@@ -3,7 +3,7 @@
 0. SUMMARY
 ------------------------------------------------------------------------------
 
-Barnyard2 - version 2-1.13
+Barnyard2 - version 2-1.13_forked_modification
 
 This README contains some quick information about how to set up and
 configure barnyard2 to ensure it works as it should.
@@ -11,6 +11,19 @@ configure barnyard2 to ensure it works as it should.
 Distribution Site:
 http://www.securixlive.com
 http://www.github.com/firnsy/barnyard2
+###########################################################
+cloned pfsense port and applied fix pertaining to mariadb incompatibility from unreleased source on main branch
+built pfsense dev environment based on FreeBSD 11.2 and pfsense 2.4.4
+cloned ports into pfsense git
+change ports files: /etc/ports/security/barnyard2/makefile to point to this repo by changing only username
+delete existing makesum file
+issue makesum on modified makefile
+issue make config (selecting mysql backend)
+issue make clean install
+issue make clean
+issue make package
+SCP transfer to pfsense box
+pkg add -f **.txz
 
 
 ------------------------------------------------------------------------------
